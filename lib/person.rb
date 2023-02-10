@@ -22,21 +22,18 @@ class Person
     #     @bank_account = bank_account
     # end
 
-    # def happiness=(happiness)
-        
-        # if @happinnes > 10
-        #     @happiness = 10
-        # elsif @happiness < 0
-        #     @happiness = 0
-        # else 
-        #     @happinnes = happiness
-        # end 
-    #     @happiness = happiness
-        
-     
+    def happiness=(happiness)
 
+        @happiness = if happiness > 10
+            10
+            elsif happiness  < 0
+                0
+            else 
+                happiness
+            end
 
-    # end
+        
+    end
 
     # def happiness
 
@@ -52,11 +49,16 @@ class Person
 
     # end
 
-    # def hygiene(hygiene)
-    #     if @hygiene <=10 && @hygiene >= 0
-    #         @hygiene =hygiene
-    #     end
-    # end
+    def hygiene=(hygiene)
+        @hygiene = if hygiene > 10
+            10
+        elsif hygiene < 0
+            0
+        else
+            hygiene
+        end
+
+    end
 
     def clean?
         if self.hygiene > 7 && self.hygiene < 10
@@ -98,7 +100,7 @@ class Person
 
     def call_friend(friend = self.new(str))
         friend.happiness += 3
-        @happiness += 3
+        self.happiness += 3
         "Hi #{friend.name}! It's #{@name}. How are you?"
     end
 
